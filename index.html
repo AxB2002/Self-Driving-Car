@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+    <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Self Driving Car in a Virtual World</title>
     <link rel="stylesheet" href="/css/style.css" />
-  </head>
-  <body>
+    </head>
+    <body>
     <h1>World Editor</h1>
     <!-- Canvas Project setup -->
     <canvas id="myCanvas"></canvas>
@@ -15,18 +15,18 @@
     <script src="js/primitives/point.js"></script>
     <script src="js/primitives/segment.js"></script>
     <script>
-      myCanvas.width = 600;
-      myCanvas.height = 600;
+        myCanvas.width = 600;
+        myCanvas.height = 600;
 
-      const ctx = myCanvas.getContexct("2d");
+        const ctx = myCanvas.getContexct("2d");
 
-      const p1 = new Point(200, 200);
-      const p2 = new Point(500, 200);
-      const p3 = new Point(400, 400);
-      const p4 = new Point(100, 300);
+        const p1 = new Point(200, 200);
+        const p2 = new Point(500, 200);
+        const p3 = new Point(400, 400);
+        const p4 = new Point(100, 300);
 
-      const graph = new Graph([p1, p2, p3, p4]);
-      graph.draw(ctx);
+        const graph = new Graph([p1, p2, p3, p4]);
+        graph.draw(ctx);
     </script>
-  </body>
+    </body>
 </html>
