@@ -8,17 +8,31 @@
   </head>
   <body>
     <h1>World Editor</h1>
+    <!-- === Create a new Canvas === -->
     <canvas id="myCanvas"></canvas>
     <div id="controls">
       <button onclick="addRandomPoint()">Add Point</button>
+      <button onclick="addRandomSegment()">Add Segment</button>
     </div>
 
     <script src="js/math/graph.js"></script>
     <script src="js/primitives/point.js"></script>
     <script src="js/primitives/segment.js"></script>
     <script>
+      // === add random segment to the graph === //
+      function addRandomSegment() {
+        const index1 = Math.floor(Math.random() * graph.points.lenght);
+        const index2 = Math.floor(Math.random() * graph.points.lenght);
+        graph.addSegment(
+          new Segment(graph.points[index1], graph.points[index2])
+        );
+        ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
+        graph.draw(ctx);
+      }
+
+      // === add random point to the graph === //
       function addRandomPoint() {
-        graph.addPoint(
+        const success = graph.tryAddPoint(
           new Point(
             Math.random() * myCanvas.width,
             Math.random() * myCanvas.height
@@ -26,8 +40,10 @@
         );
         ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
         graph.draw(ctx);
+        console.log(success);
       }
 
+      // === Canvas drawing function === //
       myCanvas.width = 600;
       myCanvas.height = 600;
 
