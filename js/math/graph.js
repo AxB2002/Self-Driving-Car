@@ -3,7 +3,7 @@ class Graph {
     this.points = points;
     this.segments = segments;
   }
-
+  // === Add Points === //
   addPoint(point) {
     this.points.push(point);
   }
@@ -20,9 +20,12 @@ class Graph {
     return false;
   }
 
+  // === Add Segments === //
   addSegment(seg) {
     this.segments.push(seg);
   }
+
+  // === Drawing === //
   draw(ctx) {
     for (const seg of this.segments) {
       seg.draw(ctx);
