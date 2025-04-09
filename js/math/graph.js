@@ -21,8 +21,8 @@ class Graph {
   }
 
   removePoint(point) {
-    const segments = this.getSegmentsWithPoint(point);
-    for (const seg of segments) {
+    const segs = this.getSegmentsWithPoint(point);
+    for (const seg of segs) {
       this.removeSegment(seg);
     }
     this.points.splice(this.points.indexOf(point), 1);
@@ -49,13 +49,13 @@ class Graph {
   }
 
   getSegmentsWithPoint(point) {
-    const segments = [];
+    const segs = [];
     for (const seg of this.segments) {
       if (seg.includes(point)) {
-        segments.push(seg);
+        segs.push(seg);
       }
     }
-    return segments;
+    return segs;
   }
 
   dispose() {
@@ -73,4 +73,3 @@ class Graph {
     }
   }
 }
-// Video: 31min //
