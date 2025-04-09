@@ -21,8 +21,8 @@
     <script>
       // === add random segment to the graph === //
       function addRandomSegment() {
-        const index1 = Math.floor(Math.random() * graph.points.lenght);
-        const index2 = Math.floor(Math.random() * graph.points.lenght);
+        const index1 = Math.floor(Math.random() * graph.points.length);
+        const index2 = Math.floor(Math.random() * graph.points.length);
         graph.addSegment(
           new Segment(graph.points[index1], graph.points[index2])
         );
