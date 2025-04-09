@@ -1,9 +1,13 @@
+// === GRAPH CLASS ===
+// Represents a graph data structure with points and segments
 class Graph {
+  // === CONSTRUCTOR ===
   constructor(points = [], segments = []) {
     this.points = points;
     this.segments = segments;
   }
 
+  // === POINT MANAGEMENT ===
   addPoint(point) {
     this.points.push(point);
   }
@@ -21,13 +25,14 @@ class Graph {
   }
 
   removePoint(point) {
-    const segs = this.getSegmentsWithPoint(point);
-    for (const seg of segs) {
+    const segments = this.getSegmentsWithPoint(point);
+    for (const seg of segments) {
       this.removeSegment(seg);
     }
     this.points.splice(this.points.indexOf(point), 1);
   }
 
+  // === SEGMENT MANAGEMENT ===
   addSegment(seg) {
     this.segments.push(seg);
   }
@@ -48,14 +53,15 @@ class Graph {
     this.segments.splice(this.segments.indexOf(seg), 1);
   }
 
+  // === UTILITY METHODS ===
   getSegmentsWithPoint(point) {
-    const segs = [];
+    const segments = [];
     for (const seg of this.segments) {
       if (seg.includes(point)) {
-        segs.push(seg);
+        segments.push(seg);
       }
     }
-    return segs;
+    return segments;
   }
 
   dispose() {
@@ -63,6 +69,7 @@ class Graph {
     this.segments.length = 0;
   }
 
+  // === RENDERING ===
   draw(ctx) {
     for (const seg of this.segments) {
       seg.draw(ctx);
