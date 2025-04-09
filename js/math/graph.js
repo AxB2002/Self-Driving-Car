@@ -21,8 +21,8 @@ class Graph {
   }
 
   removePoint(point) {
-    const segs = this.getSegmentsWithPoint(point);
-    for (const seg of segs) {
+    const segments = this.getSegmentsWithPoint(point);
+    for (const seg of segments) {
       this.removeSegment(seg);
     }
     this.points.splice(this.points.indexOf(point), 1);
@@ -49,13 +49,13 @@ class Graph {
   }
 
   getSegmentsWithPoint(point) {
-    const segs = [];
+    const segments = [];
     for (const seg of this.segments) {
       if (seg.includes(point)) {
-        segs.push(seg);
+        segments.push(seg);
       }
     }
-    return segs;
+    return segments;
   }
 
   dispose() {
