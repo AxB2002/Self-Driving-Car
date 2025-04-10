@@ -42,11 +42,19 @@ class Graph {
   }
 
   tryAddSegment(seg) {
-    if (!this.containsSegment(seg) && !seg.p1.equals(seg.p2)) {
-      this.addSegment(seg);
-      return true;
+    // Check if the segment already exists
+    if (this.containsSegment(seg)) {
+      return false;
     }
-    return false;
+
+    // Check if the segment connects the same point
+    if (seg.p1.equals(seg.p2)) {
+      return false;
+    }
+
+    // If all checks pass, add the segment
+    this.addSegment(seg);
+    return true;
   }
 
   removeSegment(seg) {
